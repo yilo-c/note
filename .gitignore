@@ -3,7 +3,12 @@ node_modules/
 
 # Build output
 dist/
+dev-dist/
 release/
+out/
+
+# TypeScript
+*.tsbuildinfo
 
 # OS files
 Thumbs.db
@@ -16,8 +21,14 @@ Thumbs.db
 # Environment
 .env
 .env.local
-.npmrc
 
 # Logs
 *.log
 npm-debug.log*
+
+# Claude Code workspace
+.claude/
+
+# Development artifacts
+bug截图/
+fix_*.py

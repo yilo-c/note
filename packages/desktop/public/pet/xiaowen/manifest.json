@@ -1,0 +1,25 @@
+{
+  "id": "xiaowen",
+  "displayName": "小问",
+  "version": 1,
+  "cell": {
+    "width": 256,
+    "height": 256,
+    "safePadding": 16
+  },
+  "assetMode": "single-image-fallback",
+  "sourceImage": "/pet/xiaowen/xiaowen_fullbody.png",
+  "clips": {
+    "idle": { "fps": 6, "loop": true, "frames": ["/pet/xiaowen/xiaowen_fullbody.png"] },
+    "clickDefend": { "fps": 10, "loop": false, "frames": ["/pet/xiaowen/xiaowen_fullbody.png"] },
+    "shy": { "fps": 8, "loop": false, "frames": ["/pet/xiaowen/xiaowen_fullbody.png"] },
+    "dragFly": { "fps": 12, "loop": true, "frames": ["/pet/xiaowen/xiaowen_fullbody.png"] },
+    "land": { "fps": 10, "loop": false, "frames": ["/pet/xiaowen/xiaowen_fullbody.png"] },
+    "combo3": { "fps": 14, "loop": false, "frames": ["/pet/xiaowen/xiaowen_fullbody.png"] },
+    "combo5": { "fps": 16, "loop": false, "frames": ["/pet/xiaowen/xiaowen_fullbody.png"] },
+    "chatOpen": { "fps": 6, "loop": false, "frames": ["/pet/xiaowen/xiaowen_fullbody.png"] },
+    "notice": { "fps": 8, "loop": false, "frames": ["/pet/xiaowen/xiaowen_fullbody.png"] },
+    "sleepy": { "fps": 5, "loop": false, "frames": ["/pet/xiaowen/xiaowen_fullbody.png"] },
+    "startup": { "fps": 10, "loop": false, "frames": ["/pet/xiaowen/xiaowen_fullbody.png"] }
+  }
+}

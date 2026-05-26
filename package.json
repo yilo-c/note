@@ -1,60 +1,35 @@
 {
   "name": "desk-notes",
   "private": true,
-  "version": "1.0.0",
+  "version": "1.2.0",
   "type": "module",
-  "main": "electron/main.cjs",
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
-    "electron:dev": "concurrently -k \"vite --port 5175\" \"wait-on http://localhost:5175 && cross-env NODE_ENV=development electron .\"",
-    "electron:build": "vite build && electron-builder"
+    "dev": "npm run dev -w packages/desktop",
+    "build": "npm run build -w packages/desktop",
+    "preview": "npm run preview -w packages/desktop",
+    "test": "npm run test -w packages/desktop",
+    "test:watch": "npm run test:watch -w packages/desktop",
+    "electron:dev": "npm run electron:dev -w packages/desktop",
+    "electron:build": "npm run electron:build -w packages/desktop",
+    "generate-icons": "npm run generate-icons -w packages/desktop",
+    "typecheck": "tsc --noEmit -p packages/desktop/tsconfig.json && tsc --noEmit -p packages/shared/tsconfig.json && tsc --noEmit -p packages/mobile/tsconfig.json",
+    "typecheck:desktop": "tsc --noEmit -p packages/desktop/tsconfig.json",
+    "typecheck:mobile": "tsc --noEmit -p packages/mobile/tsconfig.json",
+    "dev:mobile": "npm run dev -w packages/mobile",
+    "build:shared": "npm run typecheck -w packages/shared",
+    "build:mobile": "npm run build -w packages/mobile"
   },
-  "dependencies": {
-    "framer-motion": "^11.0.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "zustand": "^4.5.0"
+  "engines": {
+    "node": ">=18"
   },
   "devDependencies": {
-    "@types/react": "^18.2.55",
-    "@types/react-dom": "^18.2.19",
-    "@vitejs/plugin-react": "^4.2.1",
-    "autoprefixer": "^10.4.17",
-    "concurrently": "^9.2.1",
-    "cross-env": "^7.0.3",
-    "electron": "^42.0.0",
-    "electron-builder": "^26.8.1",
-    "electron-packager": "^17.1.2",
-    "postcss": "^8.4.35",
-    "tailwindcss": "^3.4.1",
-    "typescript": "^5.3.3",
-    "vite": "^5.1.0",
-    "wait-on": "^9.0.5"
+    "@types/dompurify": "^3.0.5",
+    "electron": "^42.0.0"
   },
-  "build": {
-    "appId": "com.desk-notes.app",
-    "productName": "思忆便签",
-    "directories": {
-      "output": "release"
-    },
-    "files": [
-      "dist/**/*",
-      "electron/**/*",
-      "package.json"
-    ],
-    "win": {
-      "target": ["nsis", "portable"],
-      "icon": null,
-      "signAndEditExecutable": false
-    },
-    "nsis": {
-      "oneClick": true,
-      "perMachine": false
-    },
-    "portable": {
-      "artifactName": "思忆便签-便携版-${version}.exe"
-    }
+  "dependencies": {
+    "dompurify": "^3.4.3"
   }
 }
