@@ -11,6 +11,9 @@ const mockStore: Record<string, unknown> = {
   backgroundMode: 'acrylic',
   setBackgroundMode: vi.fn(),
   locale: 'zh-CN',
+  suggestedTags: {},
+  acceptSuggestedTags: vi.fn(),
+  setSuggestedTags: vi.fn(),
 }
 
 vi.mock('../../../store/useStore', () => ({

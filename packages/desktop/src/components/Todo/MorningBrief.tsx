@@ -57,16 +57,16 @@ const MorningBrief: React.FC = () => {
         },
         () => {
           // GPS 失败 → 用城市设置
-          if (!cancelled) doFetch(userProfile.city || undefined)
+          if (!cancelled) doFetch(userProfile?.city || undefined)
         },
         { timeout: 5000, enableHighAccuracy: false },
       )
     } else {
-      doFetch(userProfile.city || undefined)
+      doFetch(userProfile?.city || undefined)
     }
 
     return () => { cancelled = true }
-  }, [userProfile.city])
+  }, [userProfile?.city])
 
   // AI 建议（仅在生日信息已填时）
   useEffect(() => {
@@ -137,7 +137,7 @@ const MorningBrief: React.FC = () => {
             {weather && (
               <span className="flex items-center gap-0.5">
                 <span>{weatherEmoji}</span>
-                <span>{userProfile.city || weather.city}</span>
+                <span>{userProfile?.city || weather.city}</span>
                 <span> · {weather.temp}°C {weather.condition}</span>
               </span>
             )}
